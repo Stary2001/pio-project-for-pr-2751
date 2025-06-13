@@ -1,0 +1,57 @@
+[stary@glados pio-project-for-pr-2751]$ pio run
+Processing genericSTM32F103C8 (platform: ststm32; board: genericSTM32F103C8; framework: arduino)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/ststm32/genericSTM32F103C8.html
+PLATFORM: ST STM32 (19.2.0) > STM32F103C8 (20k RAM. 64k Flash)
+HARDWARE: STM32F103C8T6 72MHz, 20KB RAM, 64KB Flash
+DEBUG: Current (blackmagic) External (blackmagic, cmsis-dap, jlink, stlink)
+PACKAGES: 
+ - framework-arduinoststm32 @ 4.21001.0 (2.10.1) 
+ - framework-cmsis @ 2.50900.0 (5.9.0) 
+ - toolchain-gccarmnoneeabi @ 1.120301.0 (12.3.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+AttributeError: 'tuple' object has no attribute 'startswith':
+  File "/usr/lib/python3.13/site-packages/platformio/builder/main.py", line 173:
+    env.SConscript("$BUILD_SCRIPT")
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Script/SConscript.py", line 620:
+    return _SConscript(self.fs, *files, **subst_kw)
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Script/SConscript.py", line 280:
+    exec(compile(scriptdata, scriptname, 'exec'), call_stack[-1].globals)
+  File "/home/stary/.platformio/platforms/ststm32/builder/main.py", line 120:
+    target_elf = env.BuildProgram()
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Util/envs.py", line 252:
+    return self.method(*nargs, **kwargs)
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piobuild.py", line 63:
+    env.ProcessProjectDeps()
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Util/envs.py", line 252:
+    return self.method(*nargs, **kwargs)
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piobuild.py", line 152:
+    plb = env.ConfigureProjectLibBuilder()
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Util/envs.py", line 252:
+    return self.method(*nargs, **kwargs)
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 1204:
+    project.install_dependencies()
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 987:
+    if _is_builtin(spec):
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 979:
+    for lb in self.env.GetLibBuilders():
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Util/envs.py", line 252:
+    return self.method(*nargs, **kwargs)
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 1115:
+    lb = LibBuilderFactory.new(env, lib_dir)
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 60:
+    obj = globals()[clsname](env, path, verbose=verbose)
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 153:
+    self.process_extra_options()
+  File "/usr/lib/python3.13/site-packages/platformio/builder/tools/piolib.py", line 301:
+    self.env.SConscript(
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Script/SConscript.py", line 620:
+    return _SConscript(self.fs, *files, **subst_kw)
+  File "/home/stary/.platformio/packages/tool-scons/scons-local-4.8.1/SCons/Script/SConscript.py", line 280:
+    exec(compile(scriptdata, scriptname, 'exec'), call_stack[-1].globals)
+  File "/home/stary/develop/pio-project-for-pr-2751/.pio/libdeps/genericSTM32F103C8/bsec2/extra_script.py", line 19:
+    if flag.startswith("-mcpu="):
+=========================================================================================== [FAILED] Took 0.29 seconds ===========================================================================================
+[stary@glados pio-project-for-pr-2751]$
